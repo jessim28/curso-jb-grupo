@@ -1,7 +1,14 @@
 // Tipo de roles permitidos
 export type Roles = "admin" | "editor" | "viewer" | "colaborador";
 
-// Interfaz de credenciales (entrada)
+/**
+* Registra un usuario.
+* @param data Datos de registro { username, password, confirmPassword, 
+role }.
+* @returns { ok:true, data:User } | { ok:false, message:string }
+* const r = await register({ username:"carlos", password:"123456", 
+confirmPassword:"123456", role: "admin" });
+*/
 export interface Credentials {
   username: string;
   password: string;

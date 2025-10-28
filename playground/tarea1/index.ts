@@ -5,8 +5,8 @@ import { register } from "./registerValidate";
 const users: Register[] = [
   {
     username: "admin.Pedro",
-    password: "ContraseñaPermitida1",
-    confirmPassword: "ContraseñaPermitida1",
+    password: "ContraseñaPermitida#$1908!",
+    confirmPassword: "ContraseñaPermitida#$1908!",
     role: "admin",
   },
   {
@@ -21,21 +21,27 @@ const users: Register[] = [
     confirmPassword: "ContraseñaPermitida",
     role: "viewer",
   },
-  { username: "viewer.Jessica", password: "1234", confirmPassword: "12345", role: "colaborador" },
+  {
+    username: "viewer.Jessica",
+    password: "1234",
+    confirmPassword: "12345",
+    role: "colaborador",
+  },
 ];
 
-// Formatear salida de usuario
+// Función auxiliar para imprimir usuarios
 function formatUser(user: User): string {
   return `(${user.id}) ${user.username} | Rol: ${user.role} | Email: ${user.email}`;
 }
 
-// Proceso principal
+// Proceso principal con validaciones
 const result = async () => {
+
   for (const user of users) {
     const res = await register(user);
 
-    if (res.ok && res.data) console.log("[Usuario registrado] :", formatUser(res.data));
-    else console.log("[Registro fallido] :", res.message, "| Usuario:", user.username);
+    if (res.ok && res.data) console.log("[✅ Usuario registrado] :", formatUser(res.data));
+    else console.log("[❌ Registro fallido] :", res.message, "| Usuario:", user.username);
   }
 };
 

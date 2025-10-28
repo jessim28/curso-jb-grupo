@@ -34,7 +34,7 @@ export async function register(registerData: Register): Promise<Result<User>> {
     username: registerData.username,
     role: registerData.role,
     password: registerData.password,
-    email: generateEmail(registerData.role, registerData.username),
+    email: `${registerData.role}.${registerData.username}@email.com`,
   };
 
   return { ok: true, data: user, message: "Registro exitoso." };
