@@ -1,0 +1,22 @@
+{
+  "cookies": [],
+  "origins": [
+    {
+      "origin": "https://www.saucedemo.com",
+      "localStorage": [
+        {
+          "name": "backtrace-guid",
+          "value": "4e786cf8-0e1f-4eed-9826-61051739329b"
+        },
+        {
+          "name": "backtrace-last-active",
+          "value": "1762063947143"
+        },
+        {
+          "name": "cart-contents",
+          "value": "[5,1,0]"
+        }
+      ]
+    }
+  ]
+}
