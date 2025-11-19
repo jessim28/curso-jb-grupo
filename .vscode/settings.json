@@ -11,5 +11,8 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "files.autoSaveDelay": 10,
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

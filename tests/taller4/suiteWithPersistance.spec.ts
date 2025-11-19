@@ -1,9 +1,18 @@
 import test, { expect } from "@playwright/test";
+import { Logger } from "../../helpers/utils/log.helper";
 
 const STORAGE_FILE = 'auth/suite2.session.json';
 
 // Suite 1: genera la sesión y la guarda en disco
-test.describe.serial("Suite 1: Almacenar estado autentificado", () => {
+test.describe.serial("Suite 1: Almacenar estado autentificado con helpers", () => {
+
+  test.beforeEach(async () => {
+    Logger.start("TEST");
+  });
+  
+  test.afterEach(async () => {
+    Logger.end();
+  }); 
 
   test("Login inicial y guardar sesión", async ({ page }) => {
 
@@ -11,15 +20,18 @@ test.describe.serial("Suite 1: Almacenar estado autentificado", () => {
     await page.goto("https://www.saucedemo.com/");
 
     // 2. Ingresar credenciales
+    Logger.info("Completando credenciales de usuario estandar");
     await page.fill("#user-name", "standard_user");
     await page.fill("#password", "secret_sauce");
     await page.click("#login-button");
 
     // 3. Esperar inventario visible
+    Logger.info("Esperando vista de inventario");
     await page.waitForSelector(".inventory_list");
     await expect(page.locator(".inventory_list")).toBeVisible();
 
     // 4. Guardar sesión logueada en disco
+    Logger.info("Guardando sesión autenticada");
     await page.context().storageState({ path: STORAGE_FILE });
     console.log("Sesión inicial guardada en", STORAGE_FILE);
   });

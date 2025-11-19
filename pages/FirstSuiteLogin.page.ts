@@ -1,6 +1,6 @@
 import type { Page, Locator } from "@playwright/test";
 /**
-* Page Object del login de https://theinternet.herokuapp.com/login
+* Page Object del login de https://the-internet.herokuapp.com/login
 ** - Encapsula los selectores y las acciones frecuentes (abrir 
 página, hacer login).
 * - Mantiene los tests organizados y reutilizables.

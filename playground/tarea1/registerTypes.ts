@@ -1,26 +1,27 @@
-// Tipo de roles permitidos
+/**
+ * Listado de roles soportados por la aplicación de registro.
+ */
 export type Roles = "admin" | "editor" | "viewer" | "colaborador";
 
 /**
-* Registra un usuario.
-* @param data Datos de registro { username, password, confirmPassword, 
-role }.
-* @returns { ok:true, data:User } | { ok:false, message:string }
-* const r = await register({ username:"carlos", password:"123456", 
-confirmPassword:"123456", role: "admin" });
-*/
+ * Credenciales básicas utilizadas tanto para registro como autenticación.
+ */
 export interface Credentials {
   username: string;
   password: string;
 }
 
-// Interfaz de registro
+/**
+ * Datos requeridos para registrar un nuevo usuario.
+ */
 export interface Register extends Credentials {
   confirmPassword: string;
   role: Roles;
 }
 
-// Interfaz de usuario registrado
+/**
+ * Representa a un usuario ya registrado en el sistema.
+ */
 export interface User {
   id: string;
   username: string;
@@ -29,7 +30,9 @@ export interface User {
   email: string;
 }
 
-// Resultado genérico
+/**
+ * Forma genérica de respuesta asíncrona del servicio de registro.
+ */
 export interface Result<T> {
   ok: boolean;
   data?: T;

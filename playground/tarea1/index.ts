@@ -1,7 +1,9 @@
 import { Register, User } from "./registerTypes";
 import { register } from "./registerValidate";
 
-// 🔸 Lista de usuarios para registrar
+/**
+ * Datos base que se utilizarán para probar el flujo de registro.
+ */
 const users: Register[] = [
   {
     username: "admin.Pedro",
@@ -29,12 +31,16 @@ const users: Register[] = [
   },
 ];
 
-// Función auxiliar para imprimir usuarios
+/**
+ * Retorna una representación legible del usuario recién registrado.
+ */
 function formatUser(user: User): string {
   return `(${user.id}) ${user.username} | Rol: ${user.role} | Email: ${user.email}`;
 }
 
-// Proceso principal con validaciones
+/**
+ * Ejecuta el registro para cada usuario de prueba e imprime el resultado.
+ */
 const result = async () => {
 
   for (const user of users) {
